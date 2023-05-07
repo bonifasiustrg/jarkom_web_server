@@ -24,7 +24,7 @@ while True:
     print(request)
 
 
-        # Parse HTTP headers
+    # Parse HTTP headers
     headers = request.split('\n')
     filename = headers[0].split()[1]
 
@@ -32,7 +32,7 @@ while True:
     if filename == '/':
         filename = '/index.html'
 
-        # Check if the requested file exists
+    # Check if the requested file exists
     file_path = 'htdocs' + filename
     if not os.path.isfile(file_path):
         response = 'HTTP/1.0 404 NOT FOUND\n\nFile Not Found'
@@ -127,8 +127,8 @@ while True:
         response = response_line + response_header + b'\r\n' + response_body
         client_connection.sendall(response) """
     
-    # Tutup koneksi dengan klien
-    client_connection.close()
+    # # Tutup koneksi dengan klien
+    # client_connection.close()
 
 
 #while yang dikerjakan
