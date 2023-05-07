@@ -2,6 +2,7 @@
 from socket import *
 import os # In order to get the current working directory
 import sys # In order to terminate the program
+import mimetypes # In order to determine the content type of the requested file
 
 #Prepare a sever socket
 serverPort = 12000
@@ -31,21 +32,51 @@ while True:
     if filename == '/':
         filename = '/index.html'
 
-    try:
-        # fin = open('htdocs' + filename)
-        # content = fin.read()
-        with open('htdocs' + filename, 'rb') as fin:
-            content = fin.read().decode('utf-8', 'ignore')
-        
-        fin.close()
-
-        response = 'HTTP/1.0 200 OK\n\n' + content
-    except FileNotFoundError:
-
+        # Check if the requested file exists
+    file_path = 'htdocs' + filename
+    if not os.path.isfile(file_path):
         response = 'HTTP/1.0 404 NOT FOUND\n\nFile Not Found'
+        client_connection.sendall(response.encode())
+        client_connection.close()
+        continue
+
+    # Determine the content type of the requested file
+    content_type, encoding = mimetypes.guess_type(file_path)
+    if content_type is None:
+        content_type = 'application/octet-stream'
+
+    # If the requested file is an image, read and send the binary data
+    if content_type.startswith('image/'):
+        with open(file_path, 'rb') as f:
+            file_data = f.read()
+        response = 'HTTP/1.0 200 OK\nContent-Type: {}\n\n'.format(content_type).encode()
+        response += file_data
+        client_connection.sendall(response)
+        client_connection.close()
+        continue
+
+    # Otherwise, read and send the text data
+    with open(file_path, 'r') as f:
+        file_data = f.read()
+    response = 'HTTP/1.0 200 OK\nContent-Type: {}\n\n{}\n'.format(content_type, file_data)
+    client_connection.sendall(response.encode())
+    client_connection.close()
+
+    # try:
+    #     # fin = open('htdocs' + filename)
+    #     # content = fin.read()
+    #     with open('htdocs' + filename, 'rb') as fin:
+    #         content = fin.read().decode('utf-8', 'ignore')
+        
+    #     fin.close()
+
+    #     response = 'HTTP/1.0 200 OK\n\n' + content
+    # except FileNotFoundError:
+
+    #     response = 'HTTP/1.0 404 NOT FOUND\n\nFile Not Found'
 
     # Send HTTP response
-    client_connection.sendall(response.encode())
+    # client_connection.sendall(response.encode())
     
     # # Send HTTP response
     # response = 'HTTP/1.0 200 OK\n\nHello World'
