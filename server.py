@@ -26,8 +26,12 @@ while True:
 
 
     # Parse HTTP headers
-    headers = request.split('\n')
-    filename = headers[0].split()[1]
+    try:
+        headers = request.split('\n')
+        filename = headers[0].split()[1]
+    except IndexError:
+        client_connection.close()
+        continue
 
     # Get the content of the file
     if filename == '/':
@@ -36,7 +40,8 @@ while True:
     # Check if the requested file exists
     file_path = 'htdocs' + filename
     if not os.path.isfile(file_path):
-        response = 'HTTP/1.0 404 NOT FOUND\n\nFile Not Found'
+        response = 'HTTP/1.0 404 NOT FOUND\n\n 404 File Not Found'
+        # response = not_found
         client_connection.sendall(response.encode())
         client_connection.close()
         continue
@@ -68,4 +73,6 @@ while True:
         response = not_found()
 
     client_connection.sendall(response.encode())
+    serverSocket.listen(1)
+
     client_connection.close()

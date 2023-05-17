@@ -9,6 +9,8 @@
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat"
         />
+
+    <script src="index.js"></script>
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -73,6 +75,12 @@
             <h4>Hello World!</h4>
             <p>Here's a link to <a href="ipsum.html">Ipsum</a></p>
 
+            <div id="searchResults">
+            <input type="text" id="searchBox" placeholder="Search for an image">
+            <button onclick="searchImage()">Search</button>
+
+        </div>
+
             <p class="w3-padding-16">
             <button class="w3-button w3-black" onclick="myFunction()">
                 Toggle Grid Padding
@@ -80,7 +88,8 @@
             </p>
         </header>
         </div>
-
+        
+        
         <!-- Photo Grid -->
         <div class="w3-row" id="myGrid" style="margin-bottom: 128px">
         <div class="w3-third">
