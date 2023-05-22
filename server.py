@@ -42,6 +42,7 @@ while True:
     if not os.path.isfile(file_path):
         response = 'HTTP/1.0 404 NOT FOUND\n\n 404 File Not Found'
         # response = not_found
+        response = not_found()
         client_connection.sendall(response.encode())
         client_connection.close()
         continue

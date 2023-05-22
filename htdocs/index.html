@@ -10,7 +10,7 @@
         href="https://fonts.googleapis.com/css?family=Montserrat"
         />
 
-    <script src="index.js"></script>
+    
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -75,11 +75,17 @@
             <h4>Hello World!</h4>
             <p>Here's a link to <a href="ipsum.html">Ipsum</a></p>
 
-            <div id="searchResults">
-            <input type="text" id="searchBox" placeholder="Search for an image">
-            <button onclick="searchImage()">Search</button>
-
-        </div>
+            <!-- <div id="searchResults">
+                <form action="" id="form-search">
+                    <input type="text" id="searchBox" placeholder="Search for an image">
+                    <button type="submit">Search</button>
+                </form>
+            </div> -->
+            <form action="" id="form-search">
+                <input type="text" id="searchInput" placeholder="Enter your search query">
+                <button>Search</button>
+                <div id="imageResults"></div>
+            </form>
 
             <p class="w3-padding-16">
             <button class="w3-button w3-black" onclick="myFunction()">
@@ -92,32 +98,32 @@
         
         <!-- Photo Grid -->
         <div class="w3-row" id="myGrid" style="margin-bottom: 128px">
-        <div class="w3-third">
-            <img src="./img/rocks.jpg" style="width: 100%" />
-            <img src="./img/sound.jpg" style="width: 100%" />
-            <img src="./img/woods.jpg" style="width: 100%" />
-            <img src="./img/rock.jpg" style="width: 100%" />
-            <img src="./img/nature.jpg" style="width: 100%" />
-            <img src="./img/mist.jpg" style="width: 100%" />
-        </div>
+            <div class="w3-third">
+                <img src="./img/rocks.jpg" style="width: 100% " />
+                <img src="./img/sound.jpg" style="width: 100%" />
+                <img src="./img/woods.jpg" style="width: 100%" />
+                <img src="./img/rock.jpg" style="width: 100%" />
+                <img src="./img/nature.jpg" style="width: 100%" />
+                <img src="./img/mist.jpg" style="width: 100%" />
+            </div>
 
-        <div class="w3-third">
-            <img src="./img/coffee.jpg" style="width: 100%" />
-            <img src="./img/bridge.jpg" style="width: 100%" />
-            <img src="./img/notebook.jpg" style="width: 100%" />
-            <img src="./img/london.jpg" style="width: 100%" />
-            <img src="./img/rocks.jpg" style="width: 100%" />
-            <img src="./img/avatar_g.jpg" style="width: 100%" />
-        </div>
+            <div class="w3-third">
+                <img src="./img/coffee.jpg" style="width: 100%" />
+                <img src="./img/bridge.jpg" style="width: 100%" />
+                <img src="./img/notebook.jpg" style="width: 100%" />
+                <img src="./img/london.jpg" style="width: 100%" />
+                <img src="./img/rocks.jpg" style="width: 100%" />
+                <img src="./img/avatar_g.jpg" style="width: 100%" />
+            </div>
 
-        <div class="w3-third">
-            <img src="./img/mist.jpg" style="width: 100%" />
-            <img src="./img/workbench.jpg" style="width: 100%" />
-            <img src="./img/gondol.jpg" style="width: 100%" />
-            <img src="./img/skies.jpg" style="width: 100%" />
-            <img src="./img/lights.jpg" style="width: 100%" />
-            <img src="./img/workshop.jpg" style="width: 100%" />
-        </div>
+            <div class="w3-third">
+                <img src="./img/mist.jpg" style="width: 100%" />
+                <img src="./img/workbench.jpg" style="width: 100%" />
+                <img src="./img/gondol.jpg" style="width: 100%" />
+                <img src="./img/skies.jpg" style="width: 100%" />
+                <img src="./img/lights.jpg" style="width: 100%" />
+                <img src="./img/workshop.jpg" style="width: 100%" />
+            </div>
         </div>
 
         <!-- End Page Content -->
@@ -145,6 +151,7 @@
         </p>
     </footer>
 
+    <script src="index.js"></script>
     <script>
         // Toggle grid padding
         function myFunction() {
