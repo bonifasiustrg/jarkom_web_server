@@ -10,6 +10,9 @@ function createList(e) {
         searchImages()
     }else{
       var imageContainer = document.getElementById('imageResults');
+      while(imageContainer.firstChild){
+        imageContainer.removeChild(imageContainer.firstChild)
+      }
       var pElement = document.createElement('p');
       pElement.innerHTML = "anda belum mencari apapun"
       imageContainer.appendChild(pElement)
