@@ -1,4 +1,12 @@
 # Tugas Besar Mata Kuliah Jaringan Komputer
+Untuk mendapatkan projek ini di local direktori anda, jalankan command berikut:
+### git clone link jarkom_web_server
+
+Untuk menjalankan server, buka cmd/terminal di direktori folder jarkom_web_server
+Lalu jalankan perintah 
+### py server.py
+
+Server ready untuk menerima request client.
 
 Spesifikasi utama aplikasi:
 1. Implementasi pembuatan TCP socket dan mengaitkannya ke alamat dan port tertentu 
