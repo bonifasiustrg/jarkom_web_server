@@ -18,4 +18,4 @@ Spesifikasi utama aplikasi:
 
   
   
-<img src="https://user-images.githubusercontent.com/52784596/236688105-c426d056-4971-4534-b63d-13f6dbfc104f.png">
+<img src="https://github.com/bonifasiustrg/jarkom_web_server/assets/122033464/9cb9d102-8b67-476b-a9fa-396b3c7e24ba">
